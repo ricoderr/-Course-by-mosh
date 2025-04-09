@@ -5,5 +5,15 @@
     {% else %}
     <h1>Hello World</h1>
     {% endif %}
+    <h3>The total products are - {{Total_products}}</h3>
+      <ul>
+
+        {% for product in Products%}
+        <li>{{product.title}}
+
+        </li>
+        {%endfor%}
+        
+      </ul>
   </body>
 </html>
