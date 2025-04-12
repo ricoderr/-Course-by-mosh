@@ -10,6 +10,8 @@
 
         {% for product in Products%}
         <li>{{product.title}}
+            ${{product.unit_price}}
+            ({{product.collection.title}})
 
         </li>
         {%endfor%}
