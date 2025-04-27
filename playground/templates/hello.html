@@ -1,21 +1,11 @@
 <html>
   <body>
-    {% if name %}
-    <h1>Hello {{ name }}</h1>
-    {% else %}
-    <h1>Hello World</h1>
-    {% endif %}
-    <h3>The total products are - {{Total_products}}</h3>
-      <ul>
-
-        {% for product in Products%}
-        <li>{{product.title}}
-            ${{product.unit_price}}
-            ({{product.collection.title}})
-
-        </li>
-        {%endfor%}
-        
-      </ul>
+    {% comment %} Remember that: query set is a list of objects that you cannot access directly.  {% endcomment %}
+    {%for query in queryset%}
+      {{query.title}} - {{query.discounted_price|floatformat:2}}
+      <br>
+    {%empty%}
+      No data. 
+    {%endfor%}
   </body>
 </html>

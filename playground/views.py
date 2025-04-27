@@ -1,15 +1,11 @@
 from django.shortcuts import render
-from django.db.models import Q,F
-from django.http import HttpResponse
-from store.models import Product, OrderItem
-
+from django.db.models import F, Func, Value, ExpressionWrapper, DecimalField
+from django.db.models.aggregates import Min, Max, Count, Avg, Sum
+from store.models import Product, Customer
 
 
 def say_hello(request):
-    # output = ordered product sorted according to the title
-    query_set= Product.objects.select_related('collection').all()
-    count = query_set.count()
-
-    return render(request, 'hello.html', {'name': 'Mosh',
-                                          'Products': query_set, 
-                                          'Total_products': count})
+    queryset = Product.objects.all()
+    list(queryset)
+    return render(request, 'hello.html', {'name': 'Rijan',
+                                          'queryset': queryset})
