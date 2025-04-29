@@ -1,11 +1,5 @@
 <html>
   <body>
-    {% comment %} Remember that: query set is a list of objects that you cannot access directly.  {% endcomment %}
-    {%for query in queryset%}
-      {{query.title}} - {{query.discounted_price|floatformat:2}}
-      <br>
-    {%empty%}
-      No data. 
-    {%endfor%}
+    
   </body>
 </html>

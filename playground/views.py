@@ -1,11 +1,10 @@
 from django.shortcuts import render
-from django.db.models import F, Func, Value, ExpressionWrapper, DecimalField
+from django.db.models import F, Func, Value, ExpressionWrapper, DecimalField, Q
 from django.db.models.aggregates import Min, Max, Count, Avg, Sum
-from store.models import Product, Customer
+from store.models import Product, Customer, Collection
 
 
 def say_hello(request):
-    queryset = Product.objects.all()
-    list(queryset)
-    return render(request, 'hello.html', {'name': 'Rijan',
-                                          'queryset': queryset})
+    
+    return render(request, 'hello.html', {'name': 'Rijan'
+                                          })
