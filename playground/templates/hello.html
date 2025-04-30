@@ -1,5 +1,9 @@
 <html>
   <body>
-    
+    <h2>The total count of the queryset is {{count}}</h2>
+    {% for query in queryset%}
+      {{query.unit_price}}
+      <br>
+    {%endfor%}
   </body>
 </html>
