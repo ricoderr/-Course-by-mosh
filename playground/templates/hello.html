@@ -2,8 +2,10 @@
   <body>
     <h2>The total count of the queryset is {{count}}</h2>
     {% for query in queryset%}
-      {{query.unit_price}}
+      {{query.customer}} 
       <br>
+    {%empty%}
+    <h3>empty</h3>
     {%endfor%}
   </body>
 </html>
