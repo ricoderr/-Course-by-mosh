@@ -13,9 +13,9 @@ def product_list(request):
     return Response(serializer.data)
     
 @api_view()
-def product_details(request, id): 
-    product=get_object_or_404(Product, pk=id)
-    serializer = ProductSerializer(product)
+def product_details(request, pk): 
+    product=get_object_or_404(Product, pk=pk)
+    serializer = ProductSerializer(product, context = {'request': request})
     return Response(serializer.data)
 
 @api_view()
