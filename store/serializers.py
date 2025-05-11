@@ -11,10 +11,7 @@ class ProductSerializer(serializers.Serializer):
     title = serializers.CharField(max_length = 255)
     price = serializers.DecimalField(max_digits=6, decimal_places=2, source = 'unit_price')
     price_with_tax = serializers.SerializerMethodField(method_name='calculate_tax')
-    collection = serializers.HyperlinkedRelatedField(
-        queryset = Collection.objects.all(),
-        view_name = 'collection-detail'
-    )
+    collection = serializers.StringRelatedField()
             
     
     def calculate_tax(self, product:Product): 
